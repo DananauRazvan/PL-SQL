@@ -1,4 +1,4 @@
--- 4). Implementarea tabelelor si a constrangerilor de integritate necesare.
+-- 4). Implementation of tables and necessary integrity constraints.
 
 CREATE TABLE details (
     id INTEGER PRIMARY KEY,
@@ -69,7 +69,7 @@ CREATE TABLE employee (
     FOREIGN KEY(department_id) REFERENCES department(id)
 );
 
--- 5). Inregistrarile
+-- 5). Insert data.
 
 INSERT INTO details VALUES (1, 'LEU', 'Herastrau', 'National Arena', 'Catedrala Mantuirii Neamului', 'Muzeul Na?ional de Istorie Natural? "Grigore Antipa"');
 INSERT INTO details VALUES (2, 'EURO', 'Tiergarten', 'Olympiastadion Berlin', 'Berlin Cathedral', 'Pergamonmuseum');
@@ -202,7 +202,7 @@ INSERT INTO booking VALUES (9, 4, 'Flavia', 'Ana', TO_DATE('2021-02-10','YYYY-MM
 INSERT INTO booking VALUES (6, 5, 'Mihai', 'Avram', TO_DATE('2020-12-30','YYYY-MM-DD'), TO_DATE('2021-01-06','YYYY-MM-DD'));
 INSERT INTO booking VALUES (4, 7, 'Ramona', 'Voicu', TO_DATE('2021-02-27','YYYY-MM-DD'), TO_DATE('2021-03-03','YYYY-MM-DD'));
 
--- 6). Un subprogram stocat de tip functie, care primeste trei nume si returneaza indexul insotit de salariul fiecaruia.
+-- 6). A stored function subprogram, which receives three names and returns the index accompanied by the salary of each.
 
 CREATE TYPE obj AS OBJECT (
     id     NUMBER,
@@ -247,7 +247,7 @@ END;
 SELECT *
 FROM TABLE(f);
 
--- 7). Un subprogram stocat de tip functie, care primeste trei departamente si returneaza, cu ajutorul unui cursor, id-ul fiecaruia si managerul departamentului respectiv. 
+-- 7). A stored function subprogram, which receives three departments and returns, with the help of a cursor, the id of each and the manager of the respective department. 
 
 CREATE TYPE obj7 AS OBJECT (
     id NUMBER,
@@ -298,7 +298,7 @@ SELECT test
 FROM DUAL;
 /
 
--- 9). Un subprogram stocat de tip procedura, care primeste email-ul unei persoane ce si-a facut o rezervare si afiseaza muzeul din orasul unde s-a facut rezervarea.
+-- 9). A stored procedure subprogram, which receives the email of a person who has made a reservation and displays the museum in the city where the reservation was made.
 
 CREATE OR REPLACE PROCEDURE p9 (v_email register.email%TYPE) IS
     sol details.museum%TYPE;
