@@ -325,7 +325,7 @@ BEGIN
 END;
 /
 
--- 10). Trigger de tip LMD la nivel de comanda ce blocheaza modificarile din tabelul register intre orele 12-14.
+-- 10). Command level LMD trigger that blocks changes in the register table between 12-14.
 
 CREATE OR REPLACE TRIGGER trig10
     BEFORE INSERT OR UPDATE OR DELETE  ON register
@@ -336,7 +336,7 @@ BEGIN
 END;
 /
 
--- 11). Trigger de tip LMD la nivel de linie ce nu permite modificarea unui mail in tabelul register.
+-- 11). LMD trigger at line level that does not allow the modification of an email in the register table.
 
 CREATE OR REPLACE TRIGGER trig11
     BEFORE UPDATE OF email ON register
@@ -348,7 +348,7 @@ BEGIN
 END;
 /
 
--- 12). Trigger de tip LDD care introduce date in tabel.
+-- 12). LDD trigger that enters data into the table.
 
 CREATE TABLE audit1
     (utilizator VARCHAR2(100),  
